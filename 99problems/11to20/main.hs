@@ -18,3 +18,12 @@ dupli xs = repli xs 2
 
 repli :: [a] -> Int -> [a]
 repli xs n = concat(map (replicate n) xs)
+
+dropEvery :: [a] -> Int -> [a]
+dropEvery xs n = dropEveryHelp 1 xs n
+
+dropEveryHelp :: Int -> [a] -> Int -> [a]
+dropEveryHelp _ [] _ = []
+dropEveryHelp i (x:xs) n
+	| i == n = dropEveryHelp 1 xs n
+	| otherwise = x : dropEveryHelp (i+1) xs n
