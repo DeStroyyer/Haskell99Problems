@@ -34,4 +34,7 @@ flatten l = case l of
 	Elem e -> [e]
 	List ls -> concat(map flatten ls)
 
---myFlatten :: 
+compress :: Eq a => [a] -> [a]
+compress [] = []
+compress (x:xs) = x : compress(dropWhile (x==) xs)
+
