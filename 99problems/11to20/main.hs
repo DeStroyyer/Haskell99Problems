@@ -12,3 +12,6 @@ decodeModified [] = []
 decodeModified (x:xs) = case x of
 	Single s -> s : decodeModified xs
 	Multiple (n, m) ->  replicate n m ++ decodeModified xs
+
+dupli :: [a] -> [a]
+dupli xs = concat(map (replicate 2) xs)
