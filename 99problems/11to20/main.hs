@@ -27,3 +27,18 @@ dropEveryHelp _ [] _ = []
 dropEveryHelp i (x:xs) n
 	| i == n = dropEveryHelp 1 xs n
 	| otherwise = x : dropEveryHelp (i+1) xs n
+
+split :: [a] -> Int -> [[a]]
+split xs n = [take' n xs, drop' n xs]
+
+take' :: Int -> [a] -> [a]
+take' _ [] = []
+take' n (x:xs)
+	| n > 0 = x : take' (n-1) xs
+	| otherwise = []
+
+drop' :: Int -> [a] -> [a]
+drop' _ [] = []
+drop' n (x:xs)
+	| n <= 1 = xs
+	| otherwise = drop' (n-1) xs
