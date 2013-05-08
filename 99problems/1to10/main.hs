@@ -42,3 +42,6 @@ pack :: Eq a => [a] -> [[a]]
 pack [] = []
 pack (x:xs) =  (x:takeWhile (x==) xs) : pack(dropWhile (x==) xs)
 
+encode :: Eq a => [a] -> [(Int, a)]
+encode [] = []
+encode (x:xs) = (1+myLength(takeWhile (x==) xs), x) : encode(dropWhile (x==) xs)
