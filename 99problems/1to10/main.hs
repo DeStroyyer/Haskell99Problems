@@ -38,3 +38,7 @@ compress :: Eq a => [a] -> [a]
 compress [] = []
 compress (x:xs) = x : compress(dropWhile (x==) xs)
 
+pack :: Eq a => [a] -> [[a]]
+pack [] = []
+pack (x:xs) =  (x:takeWhile (x==) xs) : pack(dropWhile (x==) xs)
+
