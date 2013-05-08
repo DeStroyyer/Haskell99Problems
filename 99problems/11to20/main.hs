@@ -14,4 +14,7 @@ decodeModified (x:xs) = case x of
 	Multiple (n, m) ->  replicate n m ++ decodeModified xs
 
 dupli :: [a] -> [a]
-dupli xs = concat(map (replicate 2) xs)
+dupli xs = repli xs 2
+
+repli :: [a] -> Int -> [a]
+repli xs n = concat(map (replicate n) xs)
