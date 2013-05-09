@@ -46,3 +46,7 @@ drop' n (x:xs)
 slice :: [a] -> Int -> Int -> [a]
 slice xs i j = take (j-i+1) (drop (i-1) xs)
 
+rotate :: [a] -> Int -> [a]
+rotate xs n
+	| n >= 0 = drop n xs ++ take n xs
+	| otherwise = drop (length(xs) + n) xs ++ take (length(xs) + n) xs
