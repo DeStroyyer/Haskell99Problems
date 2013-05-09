@@ -50,3 +50,10 @@ rotate :: [a] -> Int -> [a]
 rotate xs n
 	| n >= 0 = drop n xs ++ take n xs
 	| otherwise = drop (length(xs) + n) xs ++ take (length(xs) + n) xs
+
+removeAt :: Int -> [a] -> (a, [a])
+removeAt n (x:xs)
+	| n == 1 = (x, xs)
+	| otherwise = (fst rec, x : snd rec)
+		where rec = removeAt (n-1) xs
+
