@@ -9,3 +9,6 @@ isPrime n
 myGcd :: Int -> Int -> Int
 myGcd a 0 = abs a
 myGcd a b = myGcd b (mod a b)
+
+coprime :: Int -> Int -> Bool
+coprime a b = gcd a b == 1
