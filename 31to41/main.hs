@@ -7,5 +7,5 @@ isPrime n
 		where l = ceiling (sqrt (fromIntegral n))
 
 myGcd :: Int -> Int -> Int
-myGcd a 0 = a
-myGcd a b = abs (myGcd b (mod a b))
+myGcd a 0 = abs a
+myGcd a b = myGcd b (mod a b)
