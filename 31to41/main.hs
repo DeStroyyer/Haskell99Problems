@@ -12,3 +12,6 @@ myGcd a b = myGcd b (mod a b)
 
 coprime :: Int -> Int -> Bool
 coprime a b = gcd a b == 1
+
+totient :: Int -> Int
+totient m = length (filter (coprime m) [1..(m-1)])
