@@ -48,3 +48,9 @@ primesR a b = filter isPrime [a..b]
 goldbach :: Int -> (Int, Int)
 goldbach n = head [(a, b) | a <- primes, b <- primes, a + b == n]
 	where primes = primesR 2 (n-2)
+
+goldbachList :: Int -> Int -> [(Int, Int)]
+goldbachList m n = map goldbach (filter even [m..n])
+
+goldbachList' :: Int -> Int -> Int -> [(Int, Int)]
+goldbachList' m n l = [(a, b) | (a, b) <- goldbachList m n, a > l && b > l]
