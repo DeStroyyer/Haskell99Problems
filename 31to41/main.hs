@@ -44,3 +44,7 @@ mult = foldr (*) 1
 
 primesR :: Int -> Int -> [Int]
 primesR a b = filter isPrime [a..b]
+
+goldbach :: Int -> (Int, Int)
+goldbach n = head [(a, b) | a <- primes, b <- primes, a + b == n]
+	where primes = primesR 2 (n-2)
