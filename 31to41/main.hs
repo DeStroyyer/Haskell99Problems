@@ -41,3 +41,6 @@ phi n = mult (map (\(p, m) -> (p-1) * p ^ (m-1)) factors)
 
 mult :: [Int] -> Int
 mult = foldr (*) 1
+
+primesR :: Int -> Int -> [Int]
+primesR a b = filter isPrime [a..b]
