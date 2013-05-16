@@ -34,10 +34,3 @@ pairMult :: [Int] -> [(Int, Int)]
 pairMult [] = []
 pairMult (x:xs) = (x, len) : pairMult (dropWhile (==x) xs)
 	where len = length (takeWhile (==x) (x:xs))
-
-phi :: Int -> Int
-phi n = mult (map (\(p, m) -> (p-1) * p ^ (m-1)) factors)
-	where factors = primeFactorsMult n
-
-mult :: [Int] -> Int
-mult = foldr (*) 1
