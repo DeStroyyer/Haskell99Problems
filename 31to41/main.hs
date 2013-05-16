@@ -26,3 +26,11 @@ factorize n (x:xs)
 	| n <= 1 = []
 	| n `mod` x == 0 = x : factorize (quot n x) (x:xs)
 	| otherwise = factorize n xs
+
+primeFactorsMult :: Int -> [(Int, Int)]
+primeFactorsMult = pairMult . primeFactors
+
+pairMult :: [Int] -> [(Int, Int)]
+pairMult [] = []
+pairMult (x:xs) = (x, len) : pairMult (dropWhile (==x) xs)
+	where len = length (takeWhile (==x) (x:xs))
