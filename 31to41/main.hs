@@ -23,9 +23,6 @@ primeFactors n = factorize n primes
 factorize :: Int -> [Int] -> [Int]
 factorize _ [] = []
 factorize n (x:xs)
-	| n <= 0 = []
-	| n `mod` x == 0 = x : factorize (divInt n x) (x:xs)
+	| n <= 1 = []
+	| n `mod` x == 0 = x : factorize (quot n x) (x:xs)
 	| otherwise = factorize n xs
-
-divInt :: Int -> Int -> Int
-divInt x y = truncate ((fromIntegral x) / (fromIntegral y))
