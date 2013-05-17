@@ -21,6 +21,13 @@ impl' a b = a && b || not a
 equ' :: Bool -> Bool -> Bool
 equ' = (==)
 
-table :: (Bool -> Bool -> Bool) -> [(Bool, Bool, Bool)]
-table f = [(a, b, f a b) | a <- values, b <- values]
+tableList :: (Bool -> Bool -> Bool) -> [(Bool, Bool, Bool)]
+tableList f = [(a, b, f a b) | a <- values, b <- values]
 	where values = [True, False]
+
+showTable :: [(Bool, Bool, Bool)] -> IO ()
+showTable [] = return ()
+showTable ((a,b,c):xs) = putStrLn (show a ++ " " ++ show b ++ " " ++ show c) >> showTable xs
+
+table :: (Bool -> Bool -> Bool) -> IO ()
+table = showTable . tableList
