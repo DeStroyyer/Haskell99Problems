@@ -64,3 +64,8 @@ showLine (x:xs) = putStr (show x ++ space) >> showLine xs
 		    | otherwise = " "
 
 -- problem 49
+gray :: Int -> [String]
+gray 0 = [""]
+gray n =  map ('0':) prev  ++ map ('1':) (reverse prev)
+	where prev = gray (n - 1)
+
