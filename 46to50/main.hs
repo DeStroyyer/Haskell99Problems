@@ -28,6 +28,7 @@ impl' a b = a && b || not a
 equ' :: Bool -> Bool -> Bool
 equ' = (==)
 
+-- problem 46/47
 table :: (Bool -> Bool -> Bool) -> IO ()
 table = showTable . tableList
 
@@ -39,6 +40,7 @@ showTable :: [(Bool, Bool, Bool)] -> IO ()
 showTable [] = return ()
 showTable ((a,b,c):xs) = putStrLn (show a ++ " " ++ show b ++ " " ++ show c) >> showTable xs
 
+-- problem 48
 tablen :: Int -> ([Bool] -> Bool) -> IO ()
 tablen n f = showTablen [xs ++ [f xs] | xs <- combos n]
 
@@ -61,3 +63,4 @@ showLine (x:xs) = putStr (show x ++ space) >> showLine xs
 	where space | x == True = "  "
 		    | otherwise = " "
 
+-- problem 49
