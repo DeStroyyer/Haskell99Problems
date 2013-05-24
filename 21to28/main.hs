@@ -32,7 +32,9 @@ rmElem (x:xs) e
 diffSelect :: Int -> Int -> IO [Int]
 diffSelect n m = rndSelect [1..m] n
 
--- TODO problem - 25
+-- problem 25
+rndPermu :: Eq a => [a] -> IO [a]
+rndPermu xs = rndSelect xs (length xs)
 
 -- problem 26
 combinations :: Eq a => Int -> [a] -> [[a]]
