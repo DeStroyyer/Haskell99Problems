@@ -1,4 +1,3 @@
-import Data.List
 import System.Random
 
 -- problem 21
