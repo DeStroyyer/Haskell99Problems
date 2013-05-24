@@ -14,6 +14,7 @@ range m n
 -- problem 23
 rndSelect :: Eq a => [a] -> Int -> IO [a]
 rndSelect _ 0 = return []
+rndSelect [] _ = return []
 rndSelect xs n = do x <- rndSelectElem xs;
 		    y <- rndSelect (rmElem xs x) (n-1)
 		    return (x:y)
@@ -27,7 +28,11 @@ rmElem (x:xs) e
 	| x == e = xs
 	| otherwise = x : rmElem xs e
 
--- TODO problem 24 - 25
+-- problem 24
+diffSelect :: Int -> Int -> IO [Int]
+diffSelect n m = rndSelect [1..m] n
+
+-- TODO problem - 25
 
 -- problem 26
 combinations :: Eq a => Int -> [a] -> [[a]]
